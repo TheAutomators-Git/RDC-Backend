@@ -1,0 +1,16 @@
+{
+    "title": "Find the support reactions at the joint",
+    "segments": [{
+            "type": "picture",
+            "solutionImage": "image/path.jpg"
+        },
+        {
+            "type": "equation",
+            "solutionText": "600 - Cx = 0"
+        },
+        {
+            "type": "equation",
+            "solutionText": "Ay - 400 - Cy = 0"
+        }
+    ]
+}
