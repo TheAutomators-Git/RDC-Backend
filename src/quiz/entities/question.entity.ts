@@ -7,8 +7,8 @@ export class Question {
     id: number;
 
     @Column()
-    title: string;  // Title or prompt of the question
+    title: string;
 
-    @OneToMany(() => Segment, segment => segment.question)
+    @OneToMany(() => Segment, segment => segment.question, { cascade: true })
     segments: Segment[];
 }

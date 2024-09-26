@@ -7,13 +7,13 @@ export class Segment {
     id: number;
 
     @Column()
-    type: string;  // 'picture' or 'equation'
+    type: string;  // 'equation' or 'picture'
 
     @Column({ nullable: true })
-    solutionText: string;  // String input for equation or other answer
+    solutionText: string;
 
     @Column({ nullable: true })
-    solutionImage: string;  // Store path for image if it's a picture
+    solutionImage: string;
 
     @ManyToOne(() => Question, question => question.segments)
     question: Question;
