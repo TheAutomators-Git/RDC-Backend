@@ -17,8 +17,9 @@ export class AuthController {
 
     @UseGuards(OidcAuthGuard)
     @Get('profile')
-    async profile(@Req() req, res): Promise<void> {
-        res.send(JSON.stringify(req.oidc.user, null, 2));
+    async profile(@Request() req, res): Promise<void> {
+        // res.send(JSON.stringify(req.oidc.user, null, 2));
+        res.send(JSON.stringify((req as any).oidc.user));
     }
 
 }
