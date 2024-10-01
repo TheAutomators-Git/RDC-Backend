@@ -1,6 +1,6 @@
-import { Controller, Get, Req, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, Request, Res, UseGuards } from '@nestjs/common';
 import { OidcAuthGuard } from './auth.guard';
-const { requiresAuth } = require('express-openid-connect');
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -15,11 +15,8 @@ export class AuthController {
         return req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out';
     }
 
-    @UseGuards(OidcAuthGuard)
     @Get('profile')
-    async profile(@Request() req, res): Promise<void> {
-        // res.send(JSON.stringify(req.oidc.user, null, 2));
-        res.send(JSON.stringify((req as any).oidc.user));
+    async profile(@Request() req: any, @Res() res: Response): Promise<void> {
+        res.send(JSON.stringify(req.oidc.user));
     }
-
 }
